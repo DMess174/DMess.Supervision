@@ -1,4 +1,4 @@
-﻿using DMess.Supervision.Desktop.ViewModels;
+﻿using DMess.Supervision.Desktop.ViewModels.Base;
 using System;
 
 namespace DMess.Supervision.Desktop.Navigation
