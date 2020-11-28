@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace DMess.Supervision.Desktop.ViewModels
+namespace DMess.Supervision.Desktop.ViewModels.Base
 {
     public delegate TViewModel CreateViewModel<TViewModel>() where TViewModel : ViewModelBase;
 
