@@ -231,6 +231,51 @@
     </Style>
 
 
+    <!--  TabNavigationButton  -->
+    <Style
+        x:Key="TabNavigationButton"
+        BasedOn="{StaticResource BaseStyle}"
+        TargetType="Button">
+        <Setter Property="Width" Value="{Binding ActualHeight, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+        <Setter Property="Height" Value="50" />
+        <Setter Property="MaxWidth" Value="100" />
+
+        <Setter Property="Template" Value="{DynamicResource TabNavigationButtonTemplate}" />
+
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Button.MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation
+                            FillBehavior="HoldEnd"
+                            Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                            From="Transparent"
+                            To="White"
+                            Duration="0:0:0.2" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+
+            <EventTrigger RoutedEvent="Button.MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation
+                            FillBehavior="HoldEnd"
+                            Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                            From="White"
+                            To="Transparent"
+                            Duration="0:0:0.1" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+
+            <!--<Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </Trigger>-->
+
+        </Style.Triggers>
+    </Style>
+
     <!--  Regular button  -->
     <!--
     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}">

@@ -5,14 +5,16 @@ namespace DMess.Supervision.Desktop.Navigation
 {
     public class ViewModelNavigator : IViewModelNavigator
     {
-        private ViewModelBase currentViewModel;
+        private ViewModelBase _currentViewModel;
 
         public ViewModelBase CurrentViewModel
         {
-            get => currentViewModel;
+            get => _currentViewModel;
             set
             {
-                currentViewModel = value;
+                _currentViewModel?.Dispose();
+
+                _currentViewModel = value;
                 StateChanged?.Invoke();
             }
         }

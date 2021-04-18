@@ -1,0 +1,62 @@
+﻿<UserControl
+    x:Class="DMess.Supervision.Desktop.Views.HeadView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DMess.Supervision.Desktop.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <!--<DockPanel>
+
+    </DockPanel>-->
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!--  Background image  -->
+        <!--
+
+        <Grid Grid.RowSpan="3">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsLoggedIn}" Value="False">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+        </Grid>-->
+
+        <!--  Dimmed overlay  -->
+        <Border
+            Grid.RowSpan="3"
+            Grid.ColumnSpan="2"
+            Panel.ZIndex="10"
+            Opacity="0.3" />
+
+        <ScrollViewer
+            Grid.RowSpan="3"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Background="{StaticResource BackgroundLightBrush}"
+            HorizontalScrollBarVisibility="Disabled"
+            VerticalScrollBarVisibility="Disabled">
+            <ContentControl Content="{Binding CurrentViewModel}" />
+        </ScrollViewer>
+
+    </Grid>
+</UserControl>

@@ -8,24 +8,17 @@ namespace DMess.Supervision.Desktop.Commands.Base
         private bool _isExecuting;
         public bool IsExecuting
         {
-            get
-            {
-                return _isExecuting;
-            }
+            get => _isExecuting;
             set
             {
                 _isExecuting = value;
-                //OnPropertyChanged();
                 CanExecuteChanged?.Invoke(this, new EventArgs());
             }
         }
 
         public new event EventHandler CanExecuteChanged;
 
-        public override bool CanExecute(object parameter)
-        {
-            return !IsExecuting;
-        }
+        public override bool CanExecute(object parameter) => !IsExecuting;
 
         public override async void Execute(object parameter)
         {

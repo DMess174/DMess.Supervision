@@ -21,7 +21,7 @@ namespace DMess.Supervision.Desktop.Navigation
             {
                 ViewType.Login => _createLoginViewModel(),
                 //ViewType.Main => _createMainViewModel(),
-                _ => throw new ArgumentException("The ViewType does not have a ViewModel.", "viewType"),
+                _ => throw new ArgumentException("The ViewType does not have a ViewModel.", nameof(viewType)),
             };
         }
     }
