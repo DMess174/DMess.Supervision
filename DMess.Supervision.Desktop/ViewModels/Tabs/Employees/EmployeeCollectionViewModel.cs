@@ -26,6 +26,7 @@ namespace DMess.Supervision.Desktop.ViewModels.Tabs.Employees
             Header = "Список персонала";
             _employeeService = employeeService;
             LoadDataCommand = new LoadCollectionDataCommand<EmployeeDTO>(_employeeService, this);
+            EditEmployeeCommand = new OpenTabCommand()
         }
 
         public static EmployeeCollectionViewModel LoadViewModel(IEmployeeCollectionService employeeService)
