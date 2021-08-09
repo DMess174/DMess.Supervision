@@ -1,0 +1,68 @@
+﻿<UserControl
+    x:Class="DMess.Supervision.Desktop.Components.ListBoxItems.EmployeeListBoxItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:Background="white"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="{StaticResource FontSizeXLarge}" />
+        </Style>
+    </UserControl.Resources>
+    <Border
+        Width="auto"
+        Padding="10"
+        HorizontalAlignment="Stretch"
+        Background="Transparent">
+        <DockPanel>
+            <Image
+                Width="100"
+                Height="{Binding Path=ActualWidth}"
+                DockPanel.Dock="Left"
+                Source="{Binding PhotoPath, TargetNullValue=../Resources/Images/nophoto.png}" />
+
+            <StackPanel VerticalAlignment="Center" DockPanel.Dock="Right">
+                <Button
+                    Padding="5,5"
+                    Background="{StaticResource WordVeryLightBlueBrush}"
+                    Command="{Binding OpenTabCommand}"
+                    CommandParameter="{Binding}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Margin="10" Kind="Edit" />
+                            <TextBlock VerticalAlignment="Center" Text="Редактировать" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button
+                    Margin="5"
+                    Padding="10,5"
+                    Background="{StaticResource WordRedBrush}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="DeleteCircle" />
+                            <TextBlock Text="Удалить" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Center" DockPanel.Dock="Right">
+                <TextBox Text="{Binding PhoneNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True}" Validation.ErrorTemplate="{StaticResource errorTemplate}" />
+            </StackPanel>
+
+            <StackPanel Margin="20,0" VerticalAlignment="Center">
+                <TextBlock Width="auto" Text="{Binding LastName, FallbackValue=Амбурцев}" />
+                <TextBlock Width="auto" Text="{Binding FirstName, FallbackValue=Дмитрий}" />
+                <TextBlock Width="auto" Text="{Binding Patronymic, FallbackValue=Андреевич}" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Post.Name}" />
+                    <TextBlock Margin="5,0" Text="{Binding Department.Department.ShortName}" />
+                </StackPanel>
+            </StackPanel>
+        </DockPanel>
+    </Border>
+</UserControl>

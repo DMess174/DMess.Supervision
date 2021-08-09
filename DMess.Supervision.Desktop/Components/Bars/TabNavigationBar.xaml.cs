@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DMess.Supervision.Desktop
+namespace DMess.Supervision.Desktop.Components.Bars
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for TabNavigationBar.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class TabNavigationBar : UserControl
     {
-        public MainWindow()
+        public TabNavigationBar()
         {
             InitializeComponent();
         }
